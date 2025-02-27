@@ -1,39 +1,39 @@
-# Генератор случайного марша (ЛКМ)
+# Random March Generator (LMB)
 
-Данное приложение реализует **псевдослучайное блуждание** с использованием **линейного конгруэнтного метода (ЛКМ)**. Генерируемая последовательность чисел зависит от введённого **seed**, что позволяет воспроизводить одинаковые результаты при одинаковых входных данных.
+This application implements a **pseudo-random walk** using the **linear congruential method (LMB)**. The generated sequence of numbers depends on the input **seed**, which allows reproducing the same results with the same input data.
 
-## Описание работы
+## Description of work
 
-1. **Ввод пользователя**:
-   - `Seed` — начальное число для генератора случайных чисел.
-   - `Кол-во точек` — количество шагов в случайном марше.
-   - Кнопка **Сгенерировать** запускает процесс генерации и отрисовки пути.
+1. **User input**:
+   - `Seed` — the initial number for the random number generator.
+   - `Number of points` — the number of steps in a random march.
+   - The **Generate** button starts the generation process and the drawing path.
 
-2. **Алгоритм генерации случайных чисел**:
-   
+2. **Random Number Generation Algorithm**:
+
    ```csharp
    X_{n+1} = (a * X_n + c) % m
    ```
    
-   Где:
-   - `a = 1664525` — множитель,
-   - `c = 1013904223` — приращение,
-   - `m = 2147483647` — модуль (максимальное значение int).
+   Where:
+   - `a = 1664525` is the multiplier,
+   - `c = 1013904223` is the increment,
+   - `m = 2147483647` is the modulus (maximum int value).
+   
+   Each new number is limited to the range `[0, 20]` for the **X** and **Y** steps.
 
-   Каждое новое число ограничивается в диапазоне `[0, 20]` для шагов по **X** и **Y**.
+3. **Display**:
+   - The list of coordinates of the path points is displayed in the `ListBox`.
+   - The graphical representation of the path is drawn in the `PictureBox` with blue lines.
 
-3. **Отображение**:
-   - Список координат точек пути выводится в `ListBox`.
-   - Графическое представление пути рисуется в `PictureBox` синими линиями.
+## Example of work (seed = 12, 100 steps)
 
-## Пример работы (seed = 12, 100 шагов)
-
-На изображении ниже представлен результат работы программы при `seed = 12` и `count = 100`. Начальная точка находится в центре, а дальнейшие шаги генерируются псевдослучайным образом.
+The image below shows the output of the program with `seed = 12` and `count = 100`. The starting point is in the center, and the subsequent steps are generated pseudo-randomly.
 
 ![Screenshot_11](https://github.com/user-attachments/assets/45d88686-62fe-46bd-9576-9e56ee533c4a)
 
 
-### Пример нескольких точек из списка:
+### Example of several points from the list:
 ```
 (213, 207)
 (214, 211)
